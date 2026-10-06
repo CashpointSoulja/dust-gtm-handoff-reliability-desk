@@ -23,7 +23,7 @@ for i, m in enumerate(marks):
 if mode == "final":
     sys.exit("final render needs the supplied native Dust clip; not available yet")
 
-card = f"{out}/slot-card.png"
+card = f"{out}/slot-card.jpg"
 img = Image.new("RGB", (1080, 1920), (250, 249, 247))
 d = ImageDraw.Draw(img)
 
@@ -34,7 +34,7 @@ lines = [("SCENE RESERVED", 34, (120, 113, 108)), ("Native Dust footage", 60, (2
 y = 720
 for t, s, c in lines:
     f = ImageFont.truetype(FONT, s); w = d.textlength(t, font=f); d.text(((1080 - w) / 2, y), t, font=f, fill=c); y += s + 50
-img.save(card)
+img.save(card, quality=95)
 
 frames = [f for f in T["frames"] if f["t"] >= start0 - 2]
 # Timeline of (time, image); slot boundaries are inserted so a slot never shows Desk frames.
