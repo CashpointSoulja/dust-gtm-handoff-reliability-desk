@@ -24,7 +24,7 @@ CSV import → row validation → stable-ID dedupe / conflict detection → terr
 - A second approval is ignored; a replayed write is `noop_replay`. One assignment, one task.
 - SLA: 4 working hours in the owner's timezone, DST and weekends included.
 - Cohort report: overall conversion rises 17.5% → 30.75% while every source falls. The Desk says "Mix shift, not improvement" and claims no impact.
-- Agent replies are checked for JSON shape, packet ID, source IDs, owner and refusal rules. Examples are labelled **"deterministic fixture; Dust adapter unconnected"** until a real reply is supplied.
+- Agent replies are checked for JSON shape, packet ID, source IDs, owner and refusal rules. Built-in examples are labelled **"deterministic fixture; Dust adapter unconnected"**; pasted replies are labelled "pasted response · provenance not verified". Three native GTMHandoffBrief preview replies (normal, missing evidence, ownership conflict) captured in Ayo's workspace pass the validator: [docs/evidence/native-replies](docs/evidence/native-replies/README.md).
 
 ![Approval, simulated write and fresh read](docs/evidence/e2e/07-write-verify.png)
 

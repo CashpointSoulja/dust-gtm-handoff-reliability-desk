@@ -28,4 +28,4 @@ Valid JSON object · only contract keys · `contract_version` · `packet_id` mat
 
 ## Status of real results
 
-No native agent output is included in this repository. Reference responses are **deterministic fixtures; Dust adapter unconnected**. Real replies will be recorded separately, labelled as such, once supplied.
+Reference responses in the Desk are **deterministic fixtures; Dust adapter unconnected**. Separately, the native GTMHandoffBrief preview was run on three eval packets (normal, missing evidence, ownership conflict) in Ayo's workspace. The actual replies, captured there, are stored unchanged in [evidence/native-replies](evidence/native-replies/README.md), and all three pass the Desk validator. Only those three evals have been run natively; the other eval packets and the negative controls have not.

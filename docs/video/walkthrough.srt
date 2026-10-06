@@ -1,0 +1,148 @@
+1
+00:00:00,450 --> 00:00:05,545
+This is GTM Handoff Reliability Desk, an independent concept by Ayo Ahmed.
+
+2
+00:00:05,595 --> 00:00:07,700
+It is not affiliated with Dust.
+
+3
+00:00:07,750 --> 00:00:13,610
+Every record is synthetic, and every CRM write and read is simulated in this browser.
+
+4
+00:00:14,501 --> 00:00:16,943
+First, a file with the wrong header.
+
+5
+00:00:16,993 --> 00:00:20,611
+The import is refused, and nothing reaches the queue.
+
+6
+00:00:21,471 --> 00:00:23,171
+Now the synthetic export.
+
+7
+00:00:23,221 --> 00:00:23,731
+19 rows.
+
+8
+00:00:23,781 --> 00:00:30,171
+One row has a bad email and a timestamp with no offset, so it is rejected by row and column.
+
+9
+00:00:30,221 --> 00:00:35,071
+Deduplicating by stable ID leaves 15 records, and 7 packets are ready.
+
+10
+00:00:35,326 --> 00:00:38,249
+The queue shows why each record stopped.
+
+11
+00:00:38,299 --> 00:00:41,742
+Rows 3 and 17 share a record ID, so they merge.
+
+12
+00:00:41,792 --> 00:00:46,276
+Two leads with the same name but different IDs stay separate.
+
+13
+00:00:46,532 --> 00:00:50,897
+A lead from Brazil has no territory rule, so it is refused, not guessed.
+
+14
+00:00:50,947 --> 00:00:54,882
+Conflicting owners go to a person, and the current owner is kept.
+
+15
+00:00:55,137 --> 00:00:58,582
+This handoff has no confirmed budget and no champion.
+
+16
+00:00:58,632 --> 00:01:03,527
+It cannot advance, the missing fields are listed, and approval is disabled.
+
+17
+00:01:03,972 --> 00:01:10,054
+A clean UK handoff exports a source-backed packet for the native Dust agent, GTMHandoffBrief.
+
+18
+00:01:10,104 --> 00:01:12,362
+The email is reduced to its domain.
+
+19
+00:01:12,612 --> 00:01:17,192
+Next, the real native agent, GTMHandoffBrief, in Ayo's Dust workspace.
+
+20
+00:01:17,242 --> 00:01:21,028
+These are actual native preview captures, shown as stills.
+
+21
+00:01:21,078 --> 00:01:25,412
+For the clean packet, it drafts a brief for the routed owner.
+
+22
+00:01:25,462 --> 00:01:28,742
+Every context line cites a source from the packet.
+
+23
+00:01:28,792 --> 00:01:35,342
+For the missing evidence packet, it refuses, and lists both missing fields: budget confirmed and champion.
+
+24
+00:01:35,392 --> 00:01:39,842
+For the ownership conflict, it refuses too, and drafts nothing.
+
+25
+00:01:40,235 --> 00:01:43,075
+Back in the desk, the real reply is pasted in.
+
+26
+00:01:43,125 --> 00:01:48,100
+It is labelled pasted, provenance not verified, because no adapter is connected.
+
+27
+00:01:48,150 --> 00:01:52,812
+The desk checks it against the same packet, and it passes with zero errors.
+
+28
+00:01:52,862 --> 00:01:59,345
+As a negative control, a labelled fixture with an invented source is rejected, naming the rule it broke.
+
+29
+00:02:00,219 --> 00:02:03,538
+A person approves, and their name and time are recorded.
+
+30
+00:02:03,588 --> 00:02:09,194
+The simulated HubSpot write then sets the owner and creates one task under an idempotency key.
+
+31
+00:02:09,244 --> 00:02:14,369
+Replaying the approval and the write changes nothing: the log shows two no-op replays.
+
+32
+00:02:15,997 --> 00:02:19,987
+A simulated fresh read confirms the owner, and exactly one task.
+
+33
+00:02:20,842 --> 00:02:22,396
+Finally, reporting.
+
+34
+00:02:22,446 --> 00:02:28,222
+Overall conversion rises from 17.5% to 30.75%, yet every source fell.
+
+35
+00:02:28,272 --> 00:02:31,852
+It is a mix shift, so no impact is claimed.
+
+36
+00:02:32,716 --> 00:02:38,307
+Every decision exports as a spec and a regression case that replays exactly.
+
+37
+00:02:38,357 --> 00:02:39,866
+Concept by Ayo Ahmed.
+

@@ -1,0 +1,3 @@
+normal 100102 pkt-100102-5139c008 accepted=true outcome=draft label=pasted response: provenance not verified by the Desk errors=[] warnings=[]
+missing 100106 pkt-100106-d75d9a89 accepted=true outcome=refused label=pasted response: provenance not verified by the Desk errors=[] warnings=[]
+conflict 100108 pkt-100108-f40534bf accepted=true outcome=refused label=pasted response: provenance not verified by the Desk errors=[] warnings=[]

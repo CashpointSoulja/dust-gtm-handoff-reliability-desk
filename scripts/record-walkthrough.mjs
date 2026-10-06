@@ -1,6 +1,6 @@
 // Records the Desk part of the vertical walkthrough (540x960 CSS px at 2x = 1080x1920) and writes scene timings.
-// Scenes marked "slot" are not recorded as Desk footage: build-video.py fills them with the supplied native Dust clip.
-// Usage: CHROME_PATH=... BASE_URL=... SCENES=video/work/vo/scenes-timed.json OUT_DIR=video/work/rec node scripts/record-walkthrough.mjs
+// Scenes marked "slot" are not recorded as Desk footage: build-video.py fills them with the actual native preview captures.
+// Usage: CHROME_PATH=... BASE_URL=... [NATIVE_RESPONSE=reply.json] SCENES=video/work/vo/scenes-timed.json OUT_DIR=video/work/rec node scripts/record-walkthrough.mjs
 import { chromium } from "playwright-core";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 
@@ -182,24 +182,44 @@ begin("s08"); // slot: native Dust footage is inserted here by build-video.py
 await hold("s08", 0.3);
 
 begin("s09");
-const fx = btn("Fixture: expected reply");
-await scrollTo(fx, { top: 420, ms: 900 });
-await click(fx);
-await sleep(400);
-await scrollTo(page.locator(".fixture-label").last(), { top: 120, ms: 900 });
-await moveTo(page.locator("#brief-out .fixture-label"), { ms: 700 });
-await sleep(1600);
-await scrollTo(btn("Fixture: invented source"), { top: 400, ms: 700 });
-await click(btn("Fixture: invented source"));
-await moveTo(page.locator("#brief-out .alert.bad"), { ms: 700 });
-await zoom(page.locator("#brief-out .alert.bad"), 1.08);
-await sleep(1200);
-await unzoom(page.locator("#brief-out .alert.bad"));
-await click(btn("Fixture: owner change"));
-await moveTo(page.locator("#brief-out").getByText("owner_change"), { ms: 700 });
-await sleep(800);
-await click(btn("Fixture: expected reply"));
-await hold("s09", 0.2);
+{
+  // NATIVE_RESPONSE: file holding the reply exactly as GTMHandoffBrief returned it. Without it, a labelled fixture is used (draft only).
+  const native = process.env.NATIVE_RESPONSE ? readFileSync(process.env.NATIVE_RESPONSE, "utf8") : null;
+  const ta = page.locator("#resp");
+  await scrollTo(ta, { top: 160, ms: 900 });
+  if (native) {
+    await click(ta);
+    await ta.fill(native);
+    await sleep(600);
+    await click(btn("Validate pasted response"));
+    await sleep(400);
+    const lab = page.locator("#brief-out .sim-label");
+    await scrollTo(lab, { top: 120, ms: 900 });
+    await moveTo(lab, { ms: 700 });
+    await zoom(lab, 1.15);
+    await sleep(1800);
+    await unzoom(lab);
+    await moveTo(page.locator("#brief-out .msg"), { ms: 800 });
+    await sleep(1600);
+  } else {
+    await click(btn("Fixture: expected reply"));
+    await sleep(400);
+    await scrollTo(page.locator("#brief-out .fixture-label"), { top: 120, ms: 900 });
+    await moveTo(page.locator("#brief-out .fixture-label"), { ms: 700 });
+    await sleep(1600);
+  }
+  await scrollTo(btn("Fixture: invented source"), { top: 400, ms: 700 });
+  await click(btn("Fixture: invented source"));
+  await moveTo(page.locator("#brief-out .fixture-label"), { ms: 600 });
+  await sleep(500);
+  await moveTo(page.locator("#brief-out .alert.bad"), { ms: 700 });
+  await zoom(page.locator("#brief-out .alert.bad"), 1.08);
+  await sleep(1400);
+  await unzoom(page.locator("#brief-out .alert.bad"));
+  if (native) { await ta.fill(native); await click(btn("Validate pasted response")); }
+  else await click(btn("Fixture: expected reply"));
+  await hold("s09", 0.2);
+}
 
 begin("s10");
 await click(btn("Continue to human approval"));

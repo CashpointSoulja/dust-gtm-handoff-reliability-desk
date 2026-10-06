@@ -1,15 +1,95 @@
 [
- {"id": "s01", "title": "Intro", "vo": "This is GTM Handoff Reliability Desk, an independent concept by Ayo Ahmed. It is not affiliated with Dust. Every record is synthetic, and every CRM write and read is simulated in this browser."},
- {"id": "s02", "title": "Wrong file", "vo": "First, a file with the wrong header. The import is refused, and nothing reaches the queue."},
- {"id": "s03", "title": "Sample import", "vo": "Now the synthetic export. Nineteen rows. One row has a bad email and a timestamp with no offset, so it is rejected by row and column. Deduplicating by stable I D leaves fifteen records, and seven packets are ready.", "sub": "Now the synthetic export. 19 rows. One row has a bad email and a timestamp with no offset, so it is rejected by row and column. Deduplicating by stable ID leaves 15 records, and 7 packets are ready."},
- {"id": "s04", "title": "Queue", "vo": "The queue shows why each record stopped. Rows three and seventeen share a record I D, so they merge. Two leads with the same name but different I Ds stay separate.", "sub": "The queue shows why each record stopped. Rows 3 and 17 share a record ID, so they merge. Two leads with the same name but different IDs stay separate."},
- {"id": "s05", "title": "Refusals", "vo": "A lead from Brazil has no territory rule, so it is refused, not guessed. Conflicting owners go to a person, and the current owner is kept."},
- {"id": "s06", "title": "Missing evidence", "vo": "This handoff has no confirmed budget and no champion. It cannot advance, the missing fields are listed, and approval is disabled."},
- {"id": "s07", "title": "Normal packet", "vo": "A clean UK handoff exports a source backed packet for the native Dust agent, G T M Handoff Brief. The email is reduced to its domain.", "sub": "A clean UK handoff exports a source-backed packet for the native Dust agent, GTMHandoffBrief. The email is reduced to its domain."},
- {"id": "s08", "title": "Native Dust slot", "slot": true, "vo": "Reserved for real footage of G T M Handoff Brief in Ayo's Dust workspace, to be supplied.", "sub": "Reserved for real footage of GTMHandoffBrief in Ayo's Dust workspace, to be supplied."},
- {"id": "s09", "title": "Inspect reply", "vo": "Back in the desk, the reply is validated against the packet. This one is a deterministic fixture, and it is labelled that way. An invented source is rejected, and so is an owner change. Each rejection names the exact rule it broke."},
- {"id": "s10", "title": "Approve and write", "vo": "A person approves, and their name and time are recorded. The simulated HubSpot write then sets the owner and creates one task under an idempotency key. Replaying the approval and the write changes nothing: the log shows two no-op replays.", "sub": "A person approves, and their name and time are recorded. The simulated HubSpot write then sets the owner and creates one task under an idempotency key. Replaying the approval and the write changes nothing: the log shows two no-op replays."},
- {"id": "s11", "title": "Fresh read", "vo": "A simulated fresh read confirms the owner, and exactly one task."},
- {"id": "s12", "title": "Cohorts", "vo": "Finally, reporting. Overall conversion rises from seventeen and a half to thirty point seven five percent, yet every source fell. It is a mix shift, so no impact is claimed.", "sub": "Finally, reporting. Overall conversion rises from 17.5% to 30.75%, yet every source fell. It is a mix shift, so no impact is claimed."},
- {"id": "s13", "title": "Close", "vo": "Every decision exports as a spec and a regression case that replays exactly. Concept by Ayo Ahmed."}
+ {
+  "id": "s01",
+  "title": "Intro",
+  "vo": "This is GTM Handoff Reliability Desk, an independent concept by Ayo Ahmed. It is not affiliated with Dust. Every record is synthetic, and every CRM write and read is simulated in this browser."
+ },
+ {
+  "id": "s02",
+  "title": "Wrong file",
+  "vo": "First, a file with the wrong header. The import is refused, and nothing reaches the queue."
+ },
+ {
+  "id": "s03",
+  "title": "Sample import",
+  "vo": "Now the synthetic export. Nineteen rows. One row has a bad email and a timestamp with no offset, so it is rejected by row and column. Deduplicating by stable I D leaves fifteen records, and seven packets are ready.",
+  "sub": "Now the synthetic export. 19 rows. One row has a bad email and a timestamp with no offset, so it is rejected by row and column. Deduplicating by stable ID leaves 15 records, and 7 packets are ready."
+ },
+ {
+  "id": "s04",
+  "title": "Queue",
+  "vo": "The queue shows why each record stopped. Rows three and seventeen share a record I D, so they merge. Two leads with the same name but different I Ds stay separate.",
+  "sub": "The queue shows why each record stopped. Rows 3 and 17 share a record ID, so they merge. Two leads with the same name but different IDs stay separate."
+ },
+ {
+  "id": "s05",
+  "title": "Refusals",
+  "vo": "A lead from Brazil has no territory rule, so it is refused, not guessed. Conflicting owners go to a person, and the current owner is kept."
+ },
+ {
+  "id": "s06",
+  "title": "Missing evidence",
+  "vo": "This handoff has no confirmed budget and no champion. It cannot advance, the missing fields are listed, and approval is disabled."
+ },
+ {
+  "id": "s07",
+  "title": "Normal packet",
+  "vo": "A clean UK handoff exports a source backed packet for the native Dust agent, G T M Handoff Brief. The email is reduced to its domain.",
+  "sub": "A clean UK handoff exports a source-backed packet for the native Dust agent, GTMHandoffBrief. The email is reduced to its domain."
+ },
+ {
+  "id": "s08",
+  "title": "Native Dust: GTMHandoffBrief",
+  "slot": true,
+  "vo": "Next, the real native agent, G T M Handoff Brief, in Ayo's Dust workspace. These are actual native preview captures, shown as stills. For the clean packet, it drafts a brief for the routed owner. Every context line cites a source from the packet. For the missing evidence packet, it refuses, and lists both missing fields: budget confirmed and champion. For the ownership conflict, it refuses too, and drafts nothing.",
+  "native_parts": [
+   {
+    "still": "native-1.jpg",
+    "vo": "Next, the real native agent, G T M Handoff Brief, in Ayo's Dust workspace. These are actual native preview captures, shown as stills. For the clean packet, it drafts a brief for the routed owner.",
+    "sub": "Next, the real native agent, GTMHandoffBrief, in Ayo's Dust workspace. These are actual native preview captures, shown as stills. For the clean packet, it drafts a brief for the routed owner."
+   },
+   {
+    "still": "native-2.jpg",
+    "vo": "Every context line cites a source from the packet."
+   },
+   {
+    "still": "native-3.jpg",
+    "vo": "For the missing evidence packet, it refuses, and lists both missing fields: budget confirmed and champion.",
+    "min_seconds": 4.5
+   },
+   {
+    "still": "native-4.jpg",
+    "vo": "For the ownership conflict, it refuses too, and drafts nothing.",
+    "min_seconds": 4.5
+   }
+  ],
+  "sub": "Next, the real native agent, GTMHandoffBrief, in Ayo's Dust workspace. These are actual native preview captures, shown as stills. For the clean packet, it drafts a brief for the routed owner. Every context line cites a source from the packet. For the missing evidence packet, it refuses, and lists both missing fields: budget confirmed and champion. For the ownership conflict, it refuses too, and drafts nothing."
+ },
+ {
+  "id": "s09",
+  "title": "Real reply, validated in the Desk",
+  "vo": "Back in the desk, the real reply is pasted in. It is labelled pasted, provenance not verified, because no adapter is connected. The desk checks it against the same packet, and it passes with zero errors. As a negative control, a labelled fixture with an invented source is rejected, naming the rule it broke."
+ },
+ {
+  "id": "s10",
+  "title": "Approve and write",
+  "vo": "A person approves, and their name and time are recorded. The simulated HubSpot write then sets the owner and creates one task under an idempotency key. Replaying the approval and the write changes nothing: the log shows two no-op replays.",
+  "sub": "A person approves, and their name and time are recorded. The simulated HubSpot write then sets the owner and creates one task under an idempotency key. Replaying the approval and the write changes nothing: the log shows two no-op replays."
+ },
+ {
+  "id": "s11",
+  "title": "Fresh read",
+  "vo": "A simulated fresh read confirms the owner, and exactly one task."
+ },
+ {
+  "id": "s12",
+  "title": "Cohorts",
+  "vo": "Finally, reporting. Overall conversion rises from seventeen and a half to thirty point seven five percent, yet every source fell. It is a mix shift, so no impact is claimed.",
+  "sub": "Finally, reporting. Overall conversion rises from 17.5% to 30.75%, yet every source fell. It is a mix shift, so no impact is claimed."
+ },
+ {
+  "id": "s13",
+  "title": "Close",
+  "vo": "Every decision exports as a spec and a regression case that replays exactly. Concept by Ayo Ahmed."
+ }
 ]

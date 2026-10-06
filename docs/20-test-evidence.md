@@ -56,6 +56,19 @@ TOTAL axe violations: 0
 exit 0
 ```
 
+
+## Native GTMHandoffBrief replies (actual native preview captures)
+
+The native agent's preview was run on three eval packets in Ayo's workspace, on his behalf, and the actual replies were captured there. Only these three evals have been run natively. Each was validated with `validateResponse` against the packet the Desk builds for the same record ([raw output](evidence/native-replies/validation.txt)):
+
+```
+normal   100102 pkt-100102-5139c008 accepted=true outcome=draft   errors=[] warnings=[]
+missing  100106 pkt-100106-d75d9a89 accepted=true outcome=refused errors=[] warnings=[]
+conflict 100108 pkt-100108-f40534bf accepted=true outcome=refused errors=[] warnings=[]
+```
+
+The check through the Desk UI, run on Ayo's behalf, reported the same three passes. Replies: [evidence/native-replies](evidence/native-replies/README.md).
+
 ## What is covered
 
 | Area | File | Tests |
@@ -94,4 +107,4 @@ ALL PASS
 
 ## Not tested
 
-Real HubSpot or Dust behaviour (not connected), screen-reader output (no assistive-technology session run), browsers other than Chrome, widths other than 390px, 768px and the 1440px e2e viewport, and real mobile devices (390px and 768px were checked in desktop Chrome's viewport emulation).
+Real HubSpot behaviour (not connected), Dust behaviour beyond the three native preview replies above (no adapter; the other eval packets were not run natively), screen-reader output (no assistive-technology session run), browsers other than Chrome, widths other than 390px, 768px and the 1440px e2e viewport, and real mobile devices (390px and 768px were checked in desktop Chrome's viewport emulation).

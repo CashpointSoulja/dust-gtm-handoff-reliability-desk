@@ -4,7 +4,7 @@
 
 - **Synthetic data only.** 19 fictional rows, fictional owners, `.example` domains. Synthetic cohort counts.
 - **Simulated CRM and clock.** No HubSpot or Dust account is connected. Writes and fresh reads are in-memory and labelled.
-- **No native agent result yet.** Fixture replies are labelled "deterministic fixture; Dust adapter unconnected".
+- **Native agent evidence is narrow.** Three native preview replies (normal, missing evidence, ownership conflict) were captured in Ayo's workspace and pass the Desk validator ([evidence/native-replies](evidence/native-replies/README.md)). The remaining eval packets have not been run natively. There is no adapter: replies are pasted, and the Desk labels them "pasted response · provenance not verified". Fixture replies stay labelled "deterministic fixture; Dust adapter unconnected".
 - **Single browser, no auth.** State is in `localStorage`. The approver name is self-declared.
 - **Personas and pain are hypotheses.** No interviews, no measured impact.
 - **Policy is small**: 5 territories, 3 segments, 9 rules; no round-robin, capacity or holidays.
