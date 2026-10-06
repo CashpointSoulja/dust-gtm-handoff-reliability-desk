@@ -20,7 +20,7 @@ Native Dust agent GTMHandoffBrief (separate, operated in Dust)
 
 ## Decisions
 
-- **Static and client-only.** No server, no secrets, nothing to breach. Pages hosting is enough. The CSP blocks all network calls (`connect-src 'none'`), so the Desk cannot call Dust or HubSpot even by mistake.
+- **Static and client-only.** There is no server-side write surface and no secrets in the repository or bundle; Pages hosting is enough. In the tested deployment the page's CSP (`connect-src 'none'`, `form-action 'none'`) blocks the app's own network requests, so the Desk does not call Dust or HubSpot. Browser-side risks remain: anyone with the page can edit its local state, browser extensions or a modified copy are outside the CSP's protection, and `localStorage` data is readable on that device. See [19-privacy-security](19-privacy-security.md).
 - **Deterministic engine.** Routing, evidence and SLA are rules, not a model. The agent only drafts text, and the Desk validates the draft.
 - **Platform generation separate from approval and write.** The agent's reply is inspected in one panel; approval and the simulated write are in another and do not depend on the reply.
 - **Idempotency key = record + owner + policy version.** A policy change cannot replay an old approval.

@@ -11,6 +11,7 @@
     "test": "vitest run",
     "test:e2e": "node scripts/e2e.mjs",
     "test:a11y": "node scripts/a11y.mjs",
+    "test:responsive": "node scripts/responsive.mjs",
     "check": "npm run typecheck && npm test && npm run build",
     "build:pages": "npm run build && node scripts/build-pages.mjs",
     "serve": "node scripts/serve.mjs"

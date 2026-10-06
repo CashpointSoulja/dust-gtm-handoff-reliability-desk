@@ -36,6 +36,7 @@ npm run check                     # typecheck + unit tests + build
 npm run serve                     # http://127.0.0.1:8787
 CHROME_PATH=/path/to/chrome npm run test:e2e
 CHROME_PATH=/path/to/chrome npm run test:a11y
+CHROME_PATH=/path/to/chrome npm run test:responsive   # 390px + 768px, all views
 npm run build:pages               # static site in dist-pages/
 ```
 
@@ -48,7 +49,7 @@ src/engine/  csv · policy · time · pipeline · desk · dust · cohort · spec
 src/ui/      main.ts
 public/      index.html · styles.css · tokens.css · brand/ · fonts/
 test/        Vitest
-scripts/     serve · build-pages · e2e · a11y
+scripts/     serve · build-pages · e2e · a11y · responsive
 docs/        PM + technical package, brand, agent contract, evidence
 ```
 

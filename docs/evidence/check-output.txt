@@ -1,18 +1,17 @@
 $ npm run typecheck
 exit 0
-
-$ npm test
+$ npm run test
  RUN  v5.0.3 <repo>
  Test Files  8 passed (8)
       Tests  58 passed (58)
-   Start at  02:48:04
-   Duration  333ms (transform 58%, import 24%, tests 16%, worker 2%)
-
+   Start at  04:01:18
+   Duration  259ms (transform 64%, import 21%, tests 12%, worker 2%)
+exit 0
 $ npm run build
   public/app.js       59.2kb
   public/app.js.map  147.2kb
 ⚡ Done in 5ms
-
+exit 0
 $ npm run test:e2e
 PASS logo, non-affiliation label and simulated disclosure visible
 PASS empty states on every view before import
@@ -33,9 +32,7 @@ PASS state survives reload; reset clears it
 PASS keyboard: Tab reaches nav, Enter activates, focus moves to main
 PASS no console errors
 18/18 passed
-
 exit 0
-
 $ npm run test:a11y
 empty import: 0 violations, 22 rules passed, 0 need review
 empty-input error: 0 violations, 25 rules passed, 0 need review
@@ -48,4 +45,19 @@ reports: 0 violations, 24 rules passed, 0 need review
 regression: 0 violations, 27 rules passed, 0 need review
 focused element has visible outline: true (solid)
 TOTAL axe violations: 0
+exit 0
+$ npm run test:responsive
+PASS 390px import: scrollWidth 390 / viewport 390
+PASS 390px queue: scrollWidth 390 / viewport 390
+PASS 390px packet: scrollWidth 390 / viewport 390
+PASS 390px approve: scrollWidth 390 / viewport 390
+PASS 390px reports: scrollWidth 390 / viewport 390
+PASS 390px export: scrollWidth 390 / viewport 390
+PASS 768px import: scrollWidth 768 / viewport 768
+PASS 768px queue: scrollWidth 768 / viewport 768
+PASS 768px packet: scrollWidth 768 / viewport 768
+PASS 768px approve: scrollWidth 768 / viewport 768
+PASS 768px reports: scrollWidth 768 / viewport 768
+PASS 768px export: scrollWidth 768 / viewport 768
+ALL PASS
 exit 0

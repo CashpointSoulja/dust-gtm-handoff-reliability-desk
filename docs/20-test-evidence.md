@@ -69,11 +69,29 @@ exit 0
 | Spec / regression | `test/spec.test.ts` | round-trip pass, changed input detected, stable spec |
 | Browser end-to-end | `scripts/e2e.mjs` | 18 checks incl. empty states, error states, refusals, approval gating, replay, reports, downloads, reload, reset, keyboard |
 | Accessibility | `scripts/a11y.mjs` | axe-core WCAG 2.0/2.1 A + AA on 9 states; focus outline |
+| Responsive layout | `scripts/responsive.mjs` | all six views at 390px and 768px after the sample import: document `scrollWidth` must not exceed the viewport and no element may extend past it unless it sits inside its own horizontal scroller (wide tables scroll inside their card) |
 
 "Need review" items from axe are checks axe cannot decide automatically (on these screens, colour contrast over the selected table row or code chips). They were not counted as passes or failures.
 
-Screenshots from the e2e run are in [`evidence/e2e/`](evidence/e2e/).
+Screenshots from the e2e run are in [`evidence/e2e/`](evidence/e2e/); full-page 390px and 768px screenshots of every view are in [`evidence/responsive/`](evidence/responsive/). Full output of the latest run of every command is in [`evidence/check-output.txt`](evidence/check-output.txt).
+
+```text
+$ npm run test:responsive
+PASS 390px import: scrollWidth 390 / viewport 390
+PASS 390px queue: scrollWidth 390 / viewport 390
+PASS 390px packet: scrollWidth 390 / viewport 390
+PASS 390px approve: scrollWidth 390 / viewport 390
+PASS 390px reports: scrollWidth 390 / viewport 390
+PASS 390px export: scrollWidth 390 / viewport 390
+PASS 768px import: scrollWidth 768 / viewport 768
+PASS 768px queue: scrollWidth 768 / viewport 768
+PASS 768px packet: scrollWidth 768 / viewport 768
+PASS 768px approve: scrollWidth 768 / viewport 768
+PASS 768px reports: scrollWidth 768 / viewport 768
+PASS 768px export: scrollWidth 768 / viewport 768
+ALL PASS
+```
 
 ## Not tested
 
-Real HubSpot or Dust behaviour (not connected), screen-reader output (no assistive-technology session run), browsers other than Chrome, mobile layouts beyond the CSS breakpoint.
+Real HubSpot or Dust behaviour (not connected), screen-reader output (no assistive-technology session run), browsers other than Chrome, widths other than 390px, 768px and the 1440px e2e viewport, and real mobile devices (390px and 768px were checked in desktop Chrome's viewport emulation).
