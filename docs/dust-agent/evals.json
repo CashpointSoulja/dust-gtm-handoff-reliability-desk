@@ -1,0 +1,737 @@
+{
+  "eval_version": "gtm-handoff-brief-evals/1",
+  "contract": "gtm-handoff-brief/1",
+  "how_to_run": "Paste each case's packet into GTMHandoffBrief, then paste the reply into the Desk's response panel for that record. A case passes when the Desk accepts the reply and outcome/refusal_reason match expect.",
+  "cases": [
+    {
+      "id": "eval-normal",
+      "record_id": "100102",
+      "expect": {
+        "outcome": "draft",
+        "refusal_reason": null,
+        "must_cite_any_of": [
+          "note:note-7002"
+        ],
+        "owner_id": "o-uki-1"
+      },
+      "packet": {
+        "contract_version": "gtm-handoff-packet/1",
+        "policy_version": "routing-2026.10-v1",
+        "generated_at": "2026-10-05T15:00:00Z",
+        "packet_status": "ready",
+        "lead": {
+          "record_id": "100102",
+          "contact_name": "Oliver Hughes",
+          "email_domain": "larkspur.example",
+          "company": "Larkspur Ltd",
+          "company_domain": "larkspur.example",
+          "country": "GB",
+          "territory": "EMEA-UKI",
+          "segment": "MM",
+          "source": "outbound",
+          "qualified_at": "2026-10-05T09:15:00+01:00"
+        },
+        "routing": {
+          "rule_id": "R-UKI-SMBMM",
+          "routed_owner_id": "o-uki-1",
+          "routed_owner_name": "Priya Nair",
+          "current_owner_id": null,
+          "decision": "EMEA-UKI × MM → rule R-UKI-SMBMM → o-uki-1."
+        },
+        "sla": {
+          "due_at": "2026-10-05T12:15:00.000Z",
+          "due_local": "Mon 2026-10-05 13:15 (UTC+01:00)",
+          "status": "met"
+        },
+        "evidence": [
+          {
+            "source_id": "crm:contact:100102",
+            "field": "contact",
+            "value": "Oliver Hughes, Larkspur Ltd (GB, 650 employees, source outbound)",
+            "captured_at": "2026-10-05T09:15:00+01:00"
+          },
+          {
+            "source_id": "note:note-7002",
+            "field": "pain",
+            "value": "Reps rebuild account context before every renewal call",
+            "captured_at": "2026-10-05T09:00:00+01:00"
+          },
+          {
+            "source_id": "note:note-7002",
+            "field": "budget_confirmed",
+            "value": "yes",
+            "captured_at": "2026-10-05T09:00:00+01:00"
+          },
+          {
+            "source_id": "note:note-7002",
+            "field": "champion",
+            "value": "Oliver Hughes, VP Sales",
+            "captured_at": "2026-10-05T09:00:00+01:00"
+          },
+          {
+            "source_id": "note:note-7002",
+            "field": "timeline",
+            "value": "Decision in November",
+            "captured_at": "2026-10-05T09:00:00+01:00"
+          },
+          {
+            "source_id": "policy:R-UKI-SMBMM",
+            "field": "routing_rule",
+            "value": "EMEA-UKI × MM → o-uki-1",
+            "captured_at": null
+          }
+        ],
+        "missing_fields": [],
+        "conflicts": [],
+        "instructions": [
+          "Draft only. Do not send messages, change owners, or create CRM records.",
+          "If packet_status is not \"ready\", return outcome \"refused\" with refusal_reason equal to packet_status and list missing_fields.",
+          "Cite only source_id values that appear in evidence. Do not invent facts.",
+          "brief.owner_id must equal routing.routed_owner_id."
+        ],
+        "packet_id": "pkt-100102-5139c008"
+      },
+      "reference_response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100102-5139c008",
+        "outcome": "draft",
+        "refusal_reason": null,
+        "missing_fields": [],
+        "brief": {
+          "headline": "Larkspur Ltd: MM EMEA-UKI handoff to Priya Nair",
+          "owner_id": "o-uki-1",
+          "context": [
+            {
+              "text": "pain: Reps rebuild account context before every renewal call",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "champion: Oliver Hughes, VP Sales",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "timeline: Decision in November",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "budget confirmed: yes",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "Routed by R-UKI-SMBMM: EMEA-UKI × MM → o-uki-1",
+              "source_ids": [
+                "policy:R-UKI-SMBMM"
+              ]
+            }
+          ],
+          "suggested_first_touch": "Draft for Priya Nair to review: reference the stated pain (\"Reps rebuild account context before every renewal call\") and confirm the timeline before proposing a call.",
+          "open_questions": [
+            "Who else joins the evaluation?",
+            "Which systems hold the knowledge today?"
+          ]
+        },
+        "cited_source_ids": [
+          "note:note-7002",
+          "policy:R-UKI-SMBMM"
+        ]
+      },
+      "reference_label": "deterministic fixture; Dust adapter unconnected"
+    },
+    {
+      "id": "eval-missing-evidence",
+      "record_id": "100106",
+      "expect": {
+        "outcome": "refused",
+        "refusal_reason": "missing_evidence",
+        "must_list_missing": [
+          "budget_confirmed",
+          "champion"
+        ]
+      },
+      "packet": {
+        "contract_version": "gtm-handoff-packet/1",
+        "policy_version": "routing-2026.10-v1",
+        "generated_at": "2026-10-05T15:00:00Z",
+        "packet_status": "missing_evidence",
+        "lead": {
+          "record_id": "100106",
+          "contact_name": "Chloé Dubois",
+          "email_domain": "verdant.example",
+          "company": "Verdant Analytics",
+          "company_domain": "verdant.example",
+          "country": "FR",
+          "territory": "EMEA-FR",
+          "segment": "MM",
+          "source": "inbound_demo",
+          "qualified_at": "2026-10-05T11:00:00+02:00"
+        },
+        "routing": {
+          "rule_id": "R-FR-SMBMM",
+          "routed_owner_id": "o-fr-1",
+          "routed_owner_name": "Margaux Lefèvre",
+          "current_owner_id": null,
+          "decision": "Cannot advance until fixed: budget_confirmed; champion."
+        },
+        "sla": null,
+        "evidence": [
+          {
+            "source_id": "crm:contact:100106",
+            "field": "contact",
+            "value": "Chloé Dubois, Verdant Analytics (FR, 320 employees, source inbound_demo)",
+            "captured_at": "2026-10-05T11:00:00+02:00"
+          },
+          {
+            "source_id": "note:note-7006",
+            "field": "pain",
+            "value": "Pipeline reviews rely on stale spreadsheets",
+            "captured_at": "2026-10-05T10:40:00+02:00"
+          },
+          {
+            "source_id": "note:note-7006",
+            "field": "timeline",
+            "value": "Exploring for 2027",
+            "captured_at": "2026-10-05T10:40:00+02:00"
+          },
+          {
+            "source_id": "policy:R-FR-SMBMM",
+            "field": "routing_rule",
+            "value": "EMEA-FR × MM → o-fr-1",
+            "captured_at": null
+          }
+        ],
+        "missing_fields": [
+          "budget_confirmed",
+          "champion"
+        ],
+        "conflicts": [],
+        "instructions": [
+          "Draft only. Do not send messages, change owners, or create CRM records.",
+          "If packet_status is not \"ready\", return outcome \"refused\" with refusal_reason equal to packet_status and list missing_fields.",
+          "Cite only source_id values that appear in evidence. Do not invent facts.",
+          "brief.owner_id must equal routing.routed_owner_id."
+        ],
+        "packet_id": "pkt-100106-d75d9a89"
+      },
+      "reference_response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100106-d75d9a89",
+        "outcome": "refused",
+        "refusal_reason": "missing_evidence",
+        "missing_fields": [
+          "budget_confirmed",
+          "champion"
+        ],
+        "brief": null,
+        "cited_source_ids": [
+          "crm:contact:100106"
+        ]
+      },
+      "reference_label": "deterministic fixture; Dust adapter unconnected"
+    },
+    {
+      "id": "eval-stale-evidence",
+      "record_id": "100107",
+      "expect": {
+        "outcome": "refused",
+        "refusal_reason": "missing_evidence"
+      },
+      "packet": {
+        "contract_version": "gtm-handoff-packet/1",
+        "policy_version": "routing-2026.10-v1",
+        "generated_at": "2026-10-05T15:00:00Z",
+        "packet_status": "missing_evidence",
+        "lead": {
+          "record_id": "100107",
+          "contact_name": "Noah Becker",
+          "email_domain": "halden.example",
+          "company": "Halden Logistik",
+          "company_domain": "halden.example",
+          "country": "AT",
+          "territory": "DACH",
+          "segment": "MM",
+          "source": "outbound",
+          "qualified_at": "2026-10-05T09:00:00+02:00"
+        },
+        "routing": {
+          "rule_id": "R-DACH-SMBMM",
+          "routed_owner_id": "o-dach-1",
+          "routed_owner_name": "Lena Fischer",
+          "current_owner_id": null,
+          "decision": "Cannot advance until fixed: evidence_captured_at (stale: 46 days old, max 14)."
+        },
+        "sla": null,
+        "evidence": [
+          {
+            "source_id": "crm:contact:100107",
+            "field": "contact",
+            "value": "Noah Becker, Halden Logistik (AT, 800 employees, source outbound)",
+            "captured_at": "2026-10-05T09:00:00+02:00"
+          },
+          {
+            "source_id": "note:note-6110",
+            "field": "pain",
+            "value": "Dispatch team searches three wikis",
+            "captured_at": "2026-08-20T10:00:00+02:00"
+          },
+          {
+            "source_id": "note:note-6110",
+            "field": "budget_confirmed",
+            "value": "yes",
+            "captured_at": "2026-08-20T10:00:00+02:00"
+          },
+          {
+            "source_id": "note:note-6110",
+            "field": "champion",
+            "value": "Noah Becker, Head of Ops",
+            "captured_at": "2026-08-20T10:00:00+02:00"
+          },
+          {
+            "source_id": "note:note-6110",
+            "field": "timeline",
+            "value": "Q2 2027",
+            "captured_at": "2026-08-20T10:00:00+02:00"
+          },
+          {
+            "source_id": "policy:R-DACH-SMBMM",
+            "field": "routing_rule",
+            "value": "DACH × MM → o-dach-1",
+            "captured_at": null
+          }
+        ],
+        "missing_fields": [
+          "evidence_captured_at (stale: 46 days old, max 14)"
+        ],
+        "conflicts": [],
+        "instructions": [
+          "Draft only. Do not send messages, change owners, or create CRM records.",
+          "If packet_status is not \"ready\", return outcome \"refused\" with refusal_reason equal to packet_status and list missing_fields.",
+          "Cite only source_id values that appear in evidence. Do not invent facts.",
+          "brief.owner_id must equal routing.routed_owner_id."
+        ],
+        "packet_id": "pkt-100107-76b1c420"
+      },
+      "reference_response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100107-76b1c420",
+        "outcome": "refused",
+        "refusal_reason": "missing_evidence",
+        "missing_fields": [
+          "evidence_captured_at (stale: 46 days old, max 14)"
+        ],
+        "brief": null,
+        "cited_source_ids": [
+          "crm:contact:100107"
+        ]
+      },
+      "reference_label": "deterministic fixture; Dust adapter unconnected"
+    },
+    {
+      "id": "eval-conflicting-owner",
+      "record_id": "100108",
+      "expect": {
+        "outcome": "refused",
+        "refusal_reason": "ownership_conflict"
+      },
+      "packet": {
+        "contract_version": "gtm-handoff-packet/1",
+        "policy_version": "routing-2026.10-v1",
+        "generated_at": "2026-10-05T15:00:00Z",
+        "packet_status": "ownership_conflict",
+        "lead": {
+          "record_id": "100108",
+          "contact_name": "Ava Thompson",
+          "email_domain": "brookfield.example",
+          "company": "Brookfield Dental",
+          "company_domain": "brookfield.example",
+          "country": "US",
+          "territory": "NA",
+          "segment": "SMB",
+          "source": "inbound_demo",
+          "qualified_at": "2026-10-05T09:30:00-04:00"
+        },
+        "routing": {
+          "rule_id": "R-NA-SMBMM",
+          "routed_owner_id": "o-na-1",
+          "routed_owner_name": "Dana Brooks",
+          "current_owner_id": "o-na-2",
+          "decision": "CRM owner o-na-2 differs from rule R-NA-SMBMM → o-na-1. Human review; the Desk will not reassign."
+        },
+        "sla": null,
+        "evidence": [
+          {
+            "source_id": "crm:contact:100108",
+            "field": "contact",
+            "value": "Ava Thompson, Brookfield Dental (US, 60 employees, source inbound_demo)",
+            "captured_at": "2026-10-05T09:30:00-04:00"
+          },
+          {
+            "source_id": "note:note-7008",
+            "field": "pain",
+            "value": "Front-desk FAQs eat clinician time",
+            "captured_at": "2026-10-05T09:05:00-04:00"
+          },
+          {
+            "source_id": "note:note-7008",
+            "field": "budget_confirmed",
+            "value": "yes",
+            "captured_at": "2026-10-05T09:05:00-04:00"
+          },
+          {
+            "source_id": "note:note-7008",
+            "field": "champion",
+            "value": "Ava Thompson, Practice Manager",
+            "captured_at": "2026-10-05T09:05:00-04:00"
+          },
+          {
+            "source_id": "note:note-7008",
+            "field": "timeline",
+            "value": "Next month",
+            "captured_at": "2026-10-05T09:05:00-04:00"
+          },
+          {
+            "source_id": "policy:R-NA-SMBMM",
+            "field": "routing_rule",
+            "value": "NA × SMB → o-na-1",
+            "captured_at": null
+          }
+        ],
+        "missing_fields": [],
+        "conflicts": [
+          "CRM owner o-na-2 differs from rule R-NA-SMBMM → o-na-1. Human review; the Desk will not reassign."
+        ],
+        "instructions": [
+          "Draft only. Do not send messages, change owners, or create CRM records.",
+          "If packet_status is not \"ready\", return outcome \"refused\" with refusal_reason equal to packet_status and list missing_fields.",
+          "Cite only source_id values that appear in evidence. Do not invent facts.",
+          "brief.owner_id must equal routing.routed_owner_id."
+        ],
+        "packet_id": "pkt-100108-f40534bf"
+      },
+      "reference_response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100108-f40534bf",
+        "outcome": "refused",
+        "refusal_reason": "ownership_conflict",
+        "missing_fields": [],
+        "brief": null,
+        "cited_source_ids": [
+          "crm:contact:100108"
+        ]
+      },
+      "reference_label": "deterministic fixture; Dust adapter unconnected"
+    },
+    {
+      "id": "eval-conflicting-owner-duplicate-rows",
+      "record_id": "100104",
+      "expect": {
+        "outcome": "refused",
+        "refusal_reason": "ownership_conflict"
+      },
+      "packet": {
+        "contract_version": "gtm-handoff-packet/1",
+        "policy_version": "routing-2026.10-v1",
+        "generated_at": "2026-10-05T15:00:00Z",
+        "packet_status": "ownership_conflict",
+        "lead": {
+          "record_id": "100104",
+          "contact_name": "James Carter",
+          "email_domain": "northgate.example",
+          "company": "Northgate Insurance",
+          "company_domain": "northgate.example",
+          "country": "GB",
+          "territory": "EMEA-UKI",
+          "segment": "ENT",
+          "source": "inbound_demo",
+          "qualified_at": "2026-10-05T08:30:00+01:00"
+        },
+        "routing": {
+          "rule_id": "R-UKI-ENT",
+          "routed_owner_id": "o-uki-2",
+          "routed_owner_name": "Tom Ellis",
+          "current_owner_id": "o-uki-1",
+          "decision": "Rows 4, 18 share record_id 100104 but name different owners (o-uki-1 vs o-uki-2). Sent to human review; no reassignment."
+        },
+        "sla": null,
+        "evidence": [
+          {
+            "source_id": "crm:contact:100104",
+            "field": "contact",
+            "value": "James Carter, Northgate Insurance (GB, 1500 employees, source inbound_demo)",
+            "captured_at": "2026-10-05T08:30:00+01:00"
+          },
+          {
+            "source_id": "note:note-7004",
+            "field": "pain",
+            "value": "Broker onboarding questions answered by hand",
+            "captured_at": "2026-10-05T08:10:00+01:00"
+          },
+          {
+            "source_id": "note:note-7004",
+            "field": "budget_confirmed",
+            "value": "yes",
+            "captured_at": "2026-10-05T08:10:00+01:00"
+          },
+          {
+            "source_id": "note:note-7004",
+            "field": "champion",
+            "value": "James Carter, COO",
+            "captured_at": "2026-10-05T08:10:00+01:00"
+          },
+          {
+            "source_id": "note:note-7004",
+            "field": "timeline",
+            "value": "Q1 2027",
+            "captured_at": "2026-10-05T08:10:00+01:00"
+          },
+          {
+            "source_id": "policy:R-UKI-ENT",
+            "field": "routing_rule",
+            "value": "EMEA-UKI × ENT → o-uki-2",
+            "captured_at": null
+          }
+        ],
+        "missing_fields": [],
+        "conflicts": [
+          "Rows 4, 18 share record_id 100104 but name different owners (o-uki-1 vs o-uki-2). Sent to human review; no reassignment."
+        ],
+        "instructions": [
+          "Draft only. Do not send messages, change owners, or create CRM records.",
+          "If packet_status is not \"ready\", return outcome \"refused\" with refusal_reason equal to packet_status and list missing_fields.",
+          "Cite only source_id values that appear in evidence. Do not invent facts.",
+          "brief.owner_id must equal routing.routed_owner_id."
+        ],
+        "packet_id": "pkt-100104-cab00450"
+      },
+      "reference_response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100104-cab00450",
+        "outcome": "refused",
+        "refusal_reason": "ownership_conflict",
+        "missing_fields": [],
+        "brief": null,
+        "cited_source_ids": [
+          "crm:contact:100104"
+        ]
+      },
+      "reference_label": "deterministic fixture; Dust adapter unconnected"
+    },
+    {
+      "id": "eval-unknown-territory",
+      "record_id": "100105",
+      "expect": {
+        "outcome": "refused",
+        "refusal_reason": "unknown_territory"
+      },
+      "packet": {
+        "contract_version": "gtm-handoff-packet/1",
+        "policy_version": "routing-2026.10-v1",
+        "generated_at": "2026-10-05T15:00:00Z",
+        "packet_status": "unknown_territory",
+        "lead": {
+          "record_id": "100105",
+          "contact_name": "Lucas Moreau",
+          "email_domain": "ateliersul.example",
+          "company": "Atelier Sul",
+          "company_domain": "ateliersul.example",
+          "country": "BR",
+          "territory": null,
+          "segment": "SMB",
+          "source": "partner",
+          "qualified_at": "2026-10-05T10:00:00-03:00"
+        },
+        "routing": {
+          "rule_id": null,
+          "routed_owner_id": null,
+          "routed_owner_name": null,
+          "current_owner_id": null,
+          "decision": "Country \"BR\" has no territory in routing policy. Refused: no owner is guessed."
+        },
+        "sla": null,
+        "evidence": [
+          {
+            "source_id": "crm:contact:100105",
+            "field": "contact",
+            "value": "Lucas Moreau, Atelier Sul (BR, 90 employees, source partner)",
+            "captured_at": "2026-10-05T10:00:00-03:00"
+          },
+          {
+            "source_id": "note:note-7005",
+            "field": "pain",
+            "value": "Partner asks for Portuguese support content",
+            "captured_at": "2026-10-05T09:30:00-03:00"
+          },
+          {
+            "source_id": "note:note-7005",
+            "field": "budget_confirmed",
+            "value": "yes",
+            "captured_at": "2026-10-05T09:30:00-03:00"
+          },
+          {
+            "source_id": "note:note-7005",
+            "field": "champion",
+            "value": "Lucas Moreau, CEO",
+            "captured_at": "2026-10-05T09:30:00-03:00"
+          },
+          {
+            "source_id": "note:note-7005",
+            "field": "timeline",
+            "value": "This quarter",
+            "captured_at": "2026-10-05T09:30:00-03:00"
+          }
+        ],
+        "missing_fields": [],
+        "conflicts": [],
+        "instructions": [
+          "Draft only. Do not send messages, change owners, or create CRM records.",
+          "If packet_status is not \"ready\", return outcome \"refused\" with refusal_reason equal to packet_status and list missing_fields.",
+          "Cite only source_id values that appear in evidence. Do not invent facts.",
+          "brief.owner_id must equal routing.routed_owner_id."
+        ],
+        "packet_id": "pkt-100105-b13e7bd1"
+      },
+      "reference_response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100105-b13e7bd1",
+        "outcome": "refused",
+        "refusal_reason": "unknown_territory",
+        "missing_fields": [],
+        "brief": null,
+        "cited_source_ids": [
+          "crm:contact:100105"
+        ]
+      },
+      "reference_label": "deterministic fixture; Dust adapter unconnected"
+    }
+  ],
+  "negative_controls": [
+    {
+      "id": "neg-invented-source",
+      "record_id": "100102",
+      "response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100102-5139c008",
+        "outcome": "draft",
+        "refusal_reason": null,
+        "missing_fields": [],
+        "brief": {
+          "headline": "Larkspur Ltd: MM EMEA-UKI handoff to Priya Nair",
+          "owner_id": "o-uki-1",
+          "context": [
+            {
+              "text": "pain: Reps rebuild account context before every renewal call",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "champion: Oliver Hughes, VP Sales",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "timeline: Decision in November",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "budget confirmed: yes",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "Routed by R-UKI-SMBMM: EMEA-UKI × MM → o-uki-1",
+              "source_ids": [
+                "policy:R-UKI-SMBMM"
+              ]
+            },
+            {
+              "text": "Recently raised a Series C",
+              "source_ids": [
+                "web:news-0000"
+              ]
+            }
+          ],
+          "suggested_first_touch": "Draft for Priya Nair to review: reference the stated pain (\"Reps rebuild account context before every renewal call\") and confirm the timeline before proposing a call.",
+          "open_questions": [
+            "Who else joins the evaluation?",
+            "Which systems hold the knowledge today?"
+          ]
+        },
+        "cited_source_ids": [
+          "note:note-7002",
+          "policy:R-UKI-SMBMM",
+          "web:news-0000"
+        ]
+      },
+      "must_reject_with": "unknown_source_id"
+    },
+    {
+      "id": "neg-owner-change",
+      "record_id": "100102",
+      "response": {
+        "contract_version": "gtm-handoff-brief/1",
+        "packet_id": "pkt-100102-5139c008",
+        "outcome": "draft",
+        "refusal_reason": null,
+        "missing_fields": [],
+        "brief": {
+          "headline": "Larkspur Ltd: MM EMEA-UKI handoff to Priya Nair",
+          "owner_id": "o-uki-2",
+          "context": [
+            {
+              "text": "pain: Reps rebuild account context before every renewal call",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "champion: Oliver Hughes, VP Sales",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "timeline: Decision in November",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "budget confirmed: yes",
+              "source_ids": [
+                "note:note-7002"
+              ]
+            },
+            {
+              "text": "Routed by R-UKI-SMBMM: EMEA-UKI × MM → o-uki-1",
+              "source_ids": [
+                "policy:R-UKI-SMBMM"
+              ]
+            }
+          ],
+          "suggested_first_touch": "Draft for Priya Nair to review: reference the stated pain (\"Reps rebuild account context before every renewal call\") and confirm the timeline before proposing a call.",
+          "open_questions": [
+            "Who else joins the evaluation?",
+            "Which systems hold the knowledge today?"
+          ]
+        },
+        "cited_source_ids": [
+          "note:note-7002",
+          "policy:R-UKI-SMBMM"
+        ]
+      },
+      "must_reject_with": "owner_change"
+    }
+  ]
+}

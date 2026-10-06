@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="GTM Handoff Reliability Desk: an independent concept by Ayo Ahmed. Not affiliated with Dust. Synthetic data only.">
+<title>GTM Handoff Reliability Desk · independent concept</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="brand/dust-logo.svg" type="image/svg+xml">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <img class="logo" src="brand/dust-logo.svg" width="96" height="24" alt="Dust">
+  <span class="sep" aria-hidden="true"></span>
+  <span class="ws">GTM Handoff Reliability Desk</span>
+  <span class="st info">Synthetic data</span>
+  <span class="spacer"></span>
+  <span class="clock" id="clock">Simulated clock</span>
+  <button type="button" class="btn ghost" data-act="reset">Reset desk</button>
+</header>
+<p class="indep" id="indep"><strong>Independent concept by Ayo Ahmed. Not affiliated with Dust.</strong> Synthetic records only. CRM writes and reads are simulated in this browser; no Dust or HubSpot account is connected.</p>
+<div class="frame">
+  <aside class="side" aria-label="Desk navigation">
+    <nav>
+      <p class="label">Desk</p>
+      <button type="button" class="nav" data-view="import"><span class="n">1</span>Import CSV</button>
+      <button type="button" class="nav" data-view="queue"><span class="n">2</span>Handoff queue</button>
+      <button type="button" class="nav" data-view="packet"><span class="n">3</span>Packet &amp; GTMHandoffBrief</button>
+      <button type="button" class="nav" data-view="approve"><span class="n">4</span>Approve &amp; simulated write</button>
+      <button type="button" class="nav" data-view="reports"><span class="n">5</span>SLA &amp; cohorts</button>
+      <button type="button" class="nav" data-view="export"><span class="n">6</span>Spec &amp; regression</button>
+    </nav>
+    <p class="label recent-label">Recent</p>
+    <ol class="recent" id="recent" aria-label="Recent desk events"></ol>
+  </aside>
+  <main id="main" tabindex="-1"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="foot">Independent concept by Ayo Ahmed. Not affiliated with Dust. The Dust name and logo belong to Dust. HubSpot is a trademark of HubSpot, Inc. All people and companies shown are fictional.</footer>
+</body>
+</html>

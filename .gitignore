@@ -3,3 +3,7 @@ dist-pages/
 .wrangler/
 *.log
 .DS_Store
+public/app.js
+public/app.js.map
+docs/evidence/e2e/*.tmp
+video/work/

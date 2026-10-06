@@ -1,0 +1,19 @@
+PASS logo, non-affiliation label and simulated disclosure visible
+PASS empty states on every view before import
+PASS empty import is refused with an actionable message
+PASS wrong header is refused and nothing is queued
+PASS sample import: row errors listed, 19 rows → 15 records
+PASS queue shows refusals and reviews
+PASS missing evidence: fields listed, approval disabled, fixture refuses
+PASS conflicting owner: fixture refuses with ownership_conflict, no reassignment
+PASS unknown territory refused with no owner
+PASS pasted response: bad JSON, invented source and owner change are rejected
+PASS normal packet: fixture draft accepted, labelled, cites sources
+PASS write refused before approval; approval needs review tick
+PASS approve → simulated write → replay is a no-op → fresh read verified
+PASS reports show denominators and the mix-shift counterexample
+PASS spec/regression export downloads and regression passes
+PASS state survives reload; reset clears it
+PASS keyboard: Tab reaches nav, Enter activates, focus moves to main
+PASS no console errors
+18/18 passed

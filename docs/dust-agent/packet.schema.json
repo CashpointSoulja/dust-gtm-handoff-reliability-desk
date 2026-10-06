@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gtm-handoff-packet/1",
+  "title": "GTM handoff packet (exported by the Desk)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "packet_id",
+    "policy_version",
+    "generated_at",
+    "packet_status",
+    "lead",
+    "routing",
+    "sla",
+    "evidence",
+    "missing_fields",
+    "conflicts",
+    "instructions"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "gtm-handoff-packet/1"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "packet_status": {
+      "enum": [
+        "ready",
+        "missing_evidence",
+        "ownership_conflict",
+        "unknown_territory",
+        "duplicate_review",
+        "not_qualified"
+      ]
+    },
+    "lead": {
+      "type": "object"
+    },
+    "routing": {
+      "type": "object"
+    },
+    "sla": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "field",
+          "value",
+          "captured_at"
+        ]
+      }
+    },
+    "missing_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
