@@ -1,0 +1,17 @@
+/* Design tokens mirrored from Dust's public Sparkle design system (light theme). See BRAND_SHEET.md. */
+@font-face{font-family:"Geist";src:url("fonts/Geist-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("fonts/GeistMono-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --app-bg:oklch(98.56% .0017 67.8);--bg:#fff;--muted:oklch(98.6% .002 67.802);
+  --fg:oklch(20.6% .005 67.543);--fg-muted:oklch(44.4% .011 78.213);--faint:oklch(55.4% .014 59.397);
+  --border:oklch(94.9% .003 106.45);--border-soft:oklch(97% .001 106.424);--border-form:oklch(86.9% .004 56.366);
+  --hover:rgba(0,0,0,.02);--selected:rgba(0,0,0,.06);
+  --blue-50:oklch(96.81% .0183 232.5);--blue-100:oklch(92.26% .0441 234.57);--blue-500:oklch(65.39% .1893 252.74);--blue-600:oklch(59.5% .1756 252.9);--blue-700:oklch(53.19% .1614 253.34);
+  --green-50:oklch(97.93% .0207 166.11);--green-600:oklch(57.64% .1041 153.7);--green-700:oklch(50.45% .1102 152.21);
+  --golden-50:oklch(98.22% .0343 98.05);--golden-500:oklch(80.18% .169 72.86);--golden-800:oklch(55.12% .1377 50.5);
+  --rose-50:oklch(97.05% .0129 17.38);--rose-500:oklch(60.89% .1999 33.35);--rose-700:oklch(50.57% .1727 33.04);
+  --shadow:0 2px 6px 0 oklch(18.98% .0094 255.63 / .102);--shadow-md:0 4px 12px oklch(18.98% .0094 255.63 / .1216);
+  --r-sm:8px;--r-md:12px;--r-lg:16px;
+  --font:"Geist",ui-sans-serif,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;
+  --w-medium:450;--w-semibold:550;
+}

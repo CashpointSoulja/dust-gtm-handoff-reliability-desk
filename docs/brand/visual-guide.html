@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Visual guide · GTM Handoff Reliability Desk</title>
+<link rel="stylesheet" href="../../public/tokens.css">
+<style>
+body{margin:0;background:var(--app-bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:20px}
+.wrap{width:1200px;margin:0 auto;padding:32px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:24px}.sep{width:1px;height:20px;background:var(--border-form)}
+h1{font-size:28px;line-height:34px;font-weight:var(--w-semibold);letter-spacing:-.02em;margin:0}
+h2{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-muted);font-weight:var(--w-medium);margin:0 0 12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px}
+.sw{display:flex;flex-wrap:wrap;gap:10px}.s{width:120px}.s i{display:block;height:44px;border-radius:var(--r-sm);border:1px solid var(--border)}.s b{display:block;font-weight:var(--w-medium);margin-top:6px}.s code{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.btn{display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:var(--r-sm);font:var(--w-medium) 14px var(--font);border:1px solid var(--border-form);background:#fff;color:var(--fg)}.btn.p{background:var(--blue-500);border-color:var(--blue-500);color:#fff}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--blue-50);color:var(--blue-700);font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:var(--w-medium)}.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue-500)}
+.tool{display:inline-flex;gap:6px;align-items:center;font:12px var(--mono);border:1px solid var(--border);background:#fff;border-radius:var(--r-sm);padding:4px 8px}.tool::after{content:"✓";color:var(--green-600)}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:2px 8px;border-radius:999px}.st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.ok{background:var(--green-50);color:var(--green-700)}.risk{background:var(--golden-50);color:var(--golden-800)}.bad{background:var(--rose-50);color:var(--rose-700)}
+.frame{border:1px solid var(--border);border-radius:var(--r-lg);background:#fff;overflow:hidden;box-shadow:var(--shadow)}.fbar{display:flex;gap:8px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border)}
+.fbody{display:grid;grid-template-columns:200px 1fr}.side{border-right:1px solid var(--border);padding:12px}.side p{margin:4px 0;padding:6px 8px;border-radius:var(--r-sm);color:var(--fg-muted)}.side p.on{background:var(--selected);color:var(--fg)}
+.main{padding:16px}.bub{margin-left:auto;max-width:70%;background:var(--muted);border:1px solid var(--border);border-radius:var(--r-lg);padding:10px 14px}.panel{background:var(--muted);border-radius:var(--r-md);padding:10px;margin:8px 0}
+.label{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-muted)}.inp{border:1px solid var(--border-form);border-radius:var(--r-md);padding:10px;color:var(--faint);display:flex;justify-content:space-between;align-items:center}.send{width:24px;height:24px;border-radius:50%;background:var(--blue-500)}
+.notice{margin-top:16px;font-size:12px;color:var(--fg-muted)}
+.type p{margin:6px 0}.m{font-family:var(--mono)}
+</style></head><body><div class="wrap">
+<header><img src="../../public/brand/dust-logo.svg" width="96" height="24" alt="Dust"><span class="sep"></span><h1>GTM Handoff Reliability Desk · visual guide</h1></header>
+<div class="grid">
+<section class="card"><h2>Colour (Sparkle light tokens)</h2><div class="sw">
+<div class="s"><i style="background:var(--app-bg)"></i><b>App bg</b><code>app-background</code></div>
+<div class="s"><i style="background:#fff"></i><b>Panel</b><code>background</code></div>
+<div class="s"><i style="background:var(--fg)"></i><b>Text</b><code>stone-900</code></div>
+<div class="s"><i style="background:var(--fg-muted)"></i><b>Muted text</b><code>stone-600</code></div>
+<div class="s"><i style="background:var(--blue-500)"></i><b>Highlight</b><code>blue-500</code></div>
+<div class="s"><i style="background:var(--blue-50)"></i><b>Highlight tint</b><code>blue-50</code></div>
+<div class="s"><i style="background:var(--green-600)"></i><b>Ready</b><code>green-600</code></div>
+<div class="s"><i style="background:var(--golden-500)"></i><b>At risk</b><code>golden-500</code></div>
+<div class="s"><i style="background:var(--rose-500)"></i><b>Blocked</b><code>rose-500</code></div>
+</div></section>
+<section class="card type"><h2>Type: Geist / Geist Mono</h2>
+<p style="font-size:24px;line-height:30px;font-weight:550;letter-spacing:-.015em">Handoffs reps can trust</p>
+<p style="font-size:18px;font-weight:450">Semibold 550 · Medium 450 · Regular 400</p>
+<p>Body 14/20. Every flag cites the record and the rule that fired.</p>
+<p class="label">Section label · RECENT · USING HUBSPOT</p>
+<p class="m" style="font-size:12px">deal.amount · hs_deal_stage · owner_id · get_deal</p></section>
+<section class="card"><h2>Controls</h2>
+<p><span class="btn p">Run audit</span> &nbsp;<span class="btn">Export packet</span> &nbsp;<span class="chip">Synthetic data</span></p>
+<p><span class="tool">get_deal</span> <span class="tool">list_associations</span> <span class="tool">get_object_properties</span></p>
+<p><span class="st ok">Ready</span> <span class="st risk">At risk</span> <span class="st bad">Blocked</span></p>
+<p class="notice">Radius 8 (controls) · 12–16 (cards) · full (status). Borders before shadow.</p></section>
+<section class="card"><h2>Pattern: workspace frame (from dust.tt/integrations/hubspot)</h2>
+<div class="frame"><div class="fbar"><img src="../../public/brand/dust-logo.svg" width="48" height="12" alt=""><span>Dust · My workspace</span></div>
+<div class="fbody"><div class="side"><span class="label">Recent</span><p class="on">AE → CS handoffs</p><p>SDR → AE handoffs</p><p>Renewals at 90 days</p></div>
+<div class="main"><div class="bub">Audit this week's closed-won handoffs</div><p><b>@handoff-auditor</b> <span style="color:var(--faint)">· Completed in 0.2 sec</span></p>
+<div class="panel"><div class="label">Using HubSpot (simulated)</div><span class="tool">get_deal</span> <span class="tool">create_task</span></div>
+<div class="inp">Ask a follow-up… <span class="send"></span></div></div></div></div></section>
+</div>
+<p class="notice"><b>Independent concept by Ayo Ahmed. Not affiliated with Dust.</b> The Dust name and logo belong to Dust and are used unmodified only to show product fit. All data is synthetic.</p>
+</div></body></html>
